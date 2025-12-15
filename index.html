@@ -1,170 +1,940 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santix | Desarrollo Digital</title>
-  <img src="ANTI - 2.png" alt="Santix Desarrollo Digital" class="logo">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:#f5f9ff;color:#1f2937;scroll-behavior:smooth}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTIX - Soluciones Digitales Profesionales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Animaciones */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        :root {
+            --primary-blue: #0066ff;
+            --dark-blue: #001a3d;
+            --light-blue: #3399ff;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+        }
 
-    section{padding:80px 20px;max-width:1200px;margin:auto;animation:fadeUp 1s ease}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--white);
+            background: var(--black);
+            overflow-x: hidden;
+        }
 
-    /* HERO */
-    header{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:120px 20px;text-align:center}
-    header h1{font-size:3rem;margin-bottom:15px}
-    header p{font-size:1.2rem;max-width:700px;margin:auto}
-    .btn{display:inline-block;margin-top:30px;padding:15px 35px;background:#fff;color:#1e40af;text-decoration:none;border-radius:40px;font-weight:600;transition:.3s}
-    .btn:hover{transform:scale(1.05)}
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* TITULOS */
-    h2{text-align:center;font-size:2.3rem;margin-bottom:50px;color:#1e40af}
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.3);
+        }
 
-    /* SERVICIOS */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-    .card{background:#fff;padding:30px;border-radius:18px;box-shadow:0 15px 35px rgba(0,0,0,.08);transition:.3s}
-    .card:hover{transform:translateY(-10px)}
-    .card h3{color:#2563eb;margin-bottom:10px}
-    .card ul{list-style:none}
-    .card ul li{margin-bottom:6px;font-size:.95rem}
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* PROCESO */
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;text-align:center}
-    .step{background:#eaf0ff;padding:30px;border-radius:20px}
-    .step span{font-size:2.5rem}
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+        }
 
-    /* PLANES */
-    .price{font-size:1.8rem;color:#1e40af;font-weight:700;margin:10px 0}
-    .note{text-align:center;font-size:.9rem;color:#475569;margin-top:20px}
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 300;
+            margin-left: 0.5rem;
+        }
 
-    /* CTA */
-    .cta{background:#1e40af;color:#fff;text-align:center;padding:90px 20px;border-radius:25px}
-    .cta h2{color:#fff}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-    /* CONTACTO */
-    .contact{text-align:center}
-    .contact p{margin-bottom:8px}
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
 
-    /* FOOTER */
-    footer{text-align:center;padding:30px;background:#0f172a;color:#cbd5f5;font-size:.9rem}
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
 
-    /* WhatsApp flotante */
-    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px 18px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
 
-    @media(max-width:768px){header h1{font-size:2.2rem}}
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: 0.3s;
+        }
 
-    .logo{
-      width: 160px;
-      margin-bottom: 25px;
-      animation: fadeUp 1s ease;
-    }
+        /* HERO SECTION */
+        #inicio {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--black) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 5% 4rem;
+        }
 
-  </style>
+        #inicio::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.3) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, 50px); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-blue);
+            font-weight: 300;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 102, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .trust-badges span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--primary-blue);
+        }
+
+        /* SERVICIOS */
+        #servicios {
+            background: var(--black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 26, 61, 0.5), rgba(0, 0, 0, 0.5));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light-blue);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .closing-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-top: 3rem;
+        }
+
+        /* PROCESO & PORTAFOLIO */
+        #portafolio {
+            background: linear-gradient(180deg, var(--black) 0%, var(--dark-blue) 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 102, 255, 0.3);
+        }
+
+        .process-step h3 {
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .step-number {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 26, 61, 0.3));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        /* PLANES */
+        #planes {
+            background: var(--black);
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .plan-card {
+            background: linear-gradient(135deg, rgba(0, 26, 61, 0.6), rgba(0, 0, 0, 0.6));
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 102, 255, 0.3);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .plan-card.featured {
+            border-color: var(--primary-blue);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 26, 61, 0.6));
+        }
+
+        .plan-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .plan-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .plan-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--light-blue);
+            margin: 2rem 0;
+        }
+
+        .additional-services {
+            background: rgba(0, 102, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .additional-services h3 {
+            color: var(--light-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .additional-services ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .additional-services li {
+            padding: 1rem;
+            background: rgba(0, 26, 61, 0.5);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* CONTACTO */
+        #contacto {
+            background: linear-gradient(180deg, var(--black) 0%, var(--dark-blue) 100%);
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--light-blue);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 26, 61, 0.3);
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .contact-info h3 {
+            color: var(--light-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-details a {
+            color: var(--light-blue);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-blue);
+        }
+
+        .final-phrase {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 102, 255, 0.3);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .services-grid,
+            .process-steps,
+            .projects-grid,
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" style="display:flex; align-items:center;">
+              <img 
+                src="ANTI - 2.png" 
+                alt="Santix - Santiago Varela"
+                style="width:130px; height:auto; object-fit:contain;"
+              >
+            </div>
 
-<!-- HERO -->
-<header>
-  <h1>Desarrollo digital para tu negocio</h1>
-  <p>Páginas web, sistemas, redes sociales y diseño profesional para impulsar tu marca</p>
-  <a class="btn" href="https://wa.me/573127682380" target="_blank">📲 Cotiza por WhatsApp</a>
-</header>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<!-- SERVICIOS -->
-<section>
-  <h2>Desarrollo de Software & Web</h2>
-  <div class="grid">
-    <div class="card"><h3>🌐 Páginas Web</h3><p>Diseños modernos, rápidos y adaptables a cualquier dispositivo.</p></div>
-    <div class="card"><h3>📄 Landing Page</h3><p>Páginas enfocadas en convertir visitantes en clientes.</p></div>
-    <div class="card"><h3>🛒 Tiendas Virtuales</h3><p>Catálogo, carrito de compras y pasarela de pago.</p></div>
-    <div class="card"><h3>⚙️ Sistemas a Medida</h3><p>Software personalizado según tu negocio.</p></div>
-    <div class="card"><h3>🌍 Dominios & Hosting</h3><p>Configuración completa con SSL incluido.</p></div>
-    <div class="card"><h3>🛠️ Soporte Técnico</h3><p>Mantenimiento y acompañamiento continuo.</p></div>
-  </div>
-</section>
+    <!-- HERO SECTION -->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1>Impulsa tu negocio con tecnología inteligente</h1>
+            <p class="subtitle">En <strong>Antix by Santix</strong> desarrollamos páginas web, landing pages y software a medida que convierten ideas en resultados reales.</p>
+            <p class="description">Desarrollador de software con más de <strong>5 años de experiencia</strong>, aportando soluciones digitales a empresas y emprendedores. Ofrezco desarrollo web, sistemas personalizados, dominio, hosting y soporte profesional.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://wa.me/573127682380?text=Hola%20Santix,%20quiero%20iniciar%20mi%20proyecto%20digital.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n." class="btn btn-primary">🚀 Quiero mi proyecto</a>
+                <a href="https://wa.me/573127682380?text=Hola%20Santix,%20necesito%20asesor%C3%ADa%20para%20mi%20proyecto.%20%C2%BFPodr%C3%ADamos%20conversar?" class="btn btn-secondary">💬 Hablar con un asesor</a>
+            </div>
 
-<section>
-  <h2>Contenido & Diseño Digital</h2>
-  <div class="grid">
-    <div class="card"><h3>🎨 Flyers</h3><p>Diseños atractivos para promociones.</p></div>
-    <div class="card"><h3>📸 Redes Sociales</h3><p>Fotos y videos optimizados para redes.</p></div>
-    <div class="card"><h3>🖌️ Logotipos</h3><p>Identidad visual profesional.</p></div>
-    <div class="card"><h3>🖼️ Banners</h3><p>Diseños digitales impactantes.</p></div>
-    <div class="card"><h3>🔗 Códigos QR</h3><p>QR personalizados para tu marca.</p></div>
-    <div class="card"><h3>💳 Tarjetas Digitales</h3><p>Presentación profesional online.</p></div>
-  </div>
-</section>
+            <div class="trust-badges">
+                <span>✔️ Soluciones a medida</span>
+                <span>✔️ Soporte personalizado</span>
+                <span>✔️ Tecnología para crecer</span>
+            </div>
+        </div>
+    </section>
 
-<!-- PROCESO -->
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <h2 class="section-title">Soluciones digitales diseñadas para crecer contigo</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Desarrollo de Páginas Web</h3>
+                <p>Diseño y desarrollo de sitios web profesionales, modernos y adaptados a cualquier dispositivo.</p>
+            </div>
 
-<section>
-  <h2>¿Cómo trabajo?</h2>
-  <div class="steps">
-    <div class="step"><span>1️⃣</span><p>Escuchamos tu idea</p></div>
-    <div class="step"><span>2️⃣</span><p>Propuesta y precio claro</p></div>
-    <div class="step"><span>3️⃣</span><p>Desarrollo y diseño</p></div>
-    <div class="step"><span>4️⃣</span><p>Entrega + soporte</p></div>
-  </div>
-</section>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Pages</h3>
+                <p>Landing pages optimizadas para captar clientes y maximizar conversiones.</p>
+            </div>
 
-<!-- PLANES -->
-<section>
-  <h2>Planes y precios</h2>
-  <div class="grid">
-    <div class="card"><h3>Landing Page</h3><p class="price">Desde $XXX</p><p>1 página · Responsive · WhatsApp</p></div>
-    <div class="card"><h3>Web Empresarial</h3><p class="price">Desde $XXX</p><p>Varias secciones · Formulario</p></div>
-    <div class="card"><h3>Tienda Virtual</h3><p class="price">Desde $XXX</p><p>Productos · Carrito · Pagos</p></div>
-    <div class="card"><h3>Sistema a Medida</h3><p class="price">Desde $XXX</p><p>Adaptado a tu negocio</p></div>
-  </div>
-  <p class="note">*Los valores pueden variar según el proyecto.</p>
-</section>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Software a Medida</h3>
+                <p>Sistemas personalizados para automatizar procesos y mejorar la productividad.</p>
+            </div>
 
-<!-- POR QUE -->
-<section>
-  <h2>¿Por qué elegirme?</h2>
-  <div class="grid">
-    <div class="card">Atención personalizada</div>
-    <div class="card">Precios claros</div>
-    <div class="card">Soporte continuo</div>
-    <div class="card">Diseño moderno</div>
-    <div class="card">Ideal para emprendedores</div>
-  </div>
-</section>
+            <div class="service-card">
+                <div class="service-icon">🛒</div>
+                <h3>Tiendas Virtuales</h3>
+                <p>E-commerce funcionales y seguros para vender 24/7.</p>
+            </div>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>¿Listo para llevar tu negocio al mundo digital?</h2>
-  <p>Escríbeme ahora y recibe asesoría gratuita</p>
-  <a class="btn" href="https://wa.me/573127682380" target="_blank">Hablar por WhatsApp</a>
-</section>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Soporte y Mantenimiento</h3>
+                <p>Acompañamiento técnico continuo, actualizaciones y mejoras.</p>
+            </div>
 
-<!-- CONTACTO -->
-<section class="contact">
-  <h2>Contacto</h2>
-  <p>¿Tienes un proyecto en mente? Escríbeme y hablemos.</p>
-  <form style="max-width:500px;margin:40px auto;display:grid;gap:15px">
-    <input type="text" placeholder="Nombre" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5">
-    <input type="email" placeholder="Correo" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5">
-    <textarea placeholder="Cuéntame tu idea" rows="4" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5"></textarea>
-    <button type="submit" class="btn">Enviar mensaje</button>
-  </form>
-  <p>📲 WhatsApp: <strong>312 768 2380</strong></p>
-  <p>📧 contacto@santix.com</p>
-</section>
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Dominio y Hosting</h3>
+                <p>Gestión completa para que tu web esté siempre en línea.</p>
+            </div>
 
-<footer>
-  © 2025 Santix · Desarrollo Digital
-</footer>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Diseño Gráfico Digital</h3>
+                <p>Flyers, banners y piezas visuales profesionales.</p>
+            </div>
 
-<a class="whatsapp" href="https://wa.me/573127682380" target="_blank">💬</a>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Contenido para Redes Sociales</h3>
+                <p>Diseño visual enfocado en conectar con tu audiencia.</p>
+            </div>
 
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Identidad Visual & Logos</h3>
+                <p>Creación de marca sólida y profesional.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📲</div>
+                <h3>Códigos QR & Tarjetas Digitales</h3>
+                <p>Soluciones modernas para compartir tu información.</p>
+            </div>
+        </div>
+
+        <p class="closing-text">Cada servicio está pensado para emprendedores, negocios y empresas que buscan soluciones digitales confiables, modernas y escalables.</p>
+    </section>
+
+    <!-- PROCESO & PORTAFOLIO -->
+    <section id="portafolio">
+        <h2 class="section-title">Mi Proceso de Trabajo</h2>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1️⃣</div>
+                <h3>Escuchamos tu idea</h3>
+                <p>Analizo tus necesidades y objetivos.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2️⃣</div>
+                <h3>Propuesta clara</h3>
+                <p>Definición del alcance y solución ideal.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3️⃣</div>
+                <h3>Desarrollo & diseño</h3>
+                <p>Funcionalidad, diseño moderno y experiencia de usuario.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4️⃣</div>
+                <h3>Entrega & soporte</h3>
+                <p>Proyecto listo y acompañamiento continuo.</p>
+            </div>
+        </div>
+
+        <p class="closing-text">Trabajo con metodología clara y comunicación constante.</p>
+
+        <h2 class="section-title" style="margin-top: 5rem;">Proyectos Realizados</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">Proyecto Empresarial</div>
+            <div class="project-card">Proyecto Comercial</div>
+            <div class="project-card">Sistema a Medida</div>
+            <div class="project-card">Landing Page</div>
+            <div class="project-card">Proyecto de Marca</div>
+            <div class="project-card">Plataforma Web</div>
+        </div>
+
+        <p class="closing-text">Cada proyecto refleja calidad, funcionalidad y soluciones reales.</p>
+    </section>
+
+    <!-- PLANES -->
+    <section id="planes">
+        <h2 class="section-title">Planes & Precios</h2>
+        
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Plan Básico</h3>
+                <p class="plan-subtitle">Ideal para emprendedores</p>
+                <ul class="plan-features">
+                    <li>✓ Landing page básica</li>
+                    <li>✓ Diseño responsive</li>
+                    <li>✓ WhatsApp y formulario</li>
+                </ul>
+                <p class="plan-price">Desde $600.000 a $1.500.000 COP</p>
+                <a href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20B%C3%A1sico.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n?" class="btn btn-primary">Contratar</a>
+            </div>
+
+            <div class="plan-card featured">
+                <h3>Plan Profesional</h3>
+                <p class="plan-subtitle">Ideal para pymes</p>
+                <ul class="plan-features">
+                    <li>✓ Web corporativa completa</li>
+                    <li>✓ Diseño personalizado</li>
+                    <li>✓ Integraciones</li>
+                </ul>
+                <p class="plan-price">Desde $1.800.000 a $4.999.000 COP</p>
+                <a href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20Profesional.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n?" class="btn btn-primary">Contratar</a>
+            </div>
+
+            <div class="plan-card">
+                <h3>Plan Premium</h3>
+                <p class="plan-subtitle">Ideal para empresas</p>
+                <ul class="plan-features">
+                    <li>✓ Plataforma o software a medida</li>
+                    <li>✓ Funcionalidades avanzadas</li>
+                    <li>✓ Soporte continuo</li>
+                </ul>
+                <p class="plan-price">Desde $5.000.000 COP en adelante</p>
+                <a href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20Premium.%20%C2%BFPodr%C3%ADas%20darme%20m%C3%A1s%20informaci%C3%B3n?" class="btn btn-primary">Contratar</a>
+            </div>
+        </div>
+
+        <div class="additional-services">
+            <h3>Servicios Adicionales</h3>
+            <ul>
+                <li>🎨 Diseño & Branding – desde $150.000 COP</li>
+                <li>🌐 Dominio & Hosting – desde $250.000 COP / año</li>
+                <li>🔧 Soporte – desde $200.000 COP / mes</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        
+        <div class="contact-content">
+            <p class="contact-intro">Cuéntame tu idea y juntos encontraremos la mejor solución digital para tu negocio.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="proyecto">Descripción del proyecto</label>
+                    <textarea id="proyecto" placeholder="Cuéntanos qué necesitas: página web, landing page, software, diseño o cualquier idea que tengas." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">💬 Enviar mensaje por WhatsApp</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-details">
+                    <p>📱 WhatsApp: <a href="https://wa.me/573127682380">+57 312 768 2380</a></p>
+                    <p>✉️ Correo: <a href="mailto:santidevolper2002@gmail.com">santidevolper2002@gmail.com</a></p>
+                    <p>📲 Redes: @SantiagoVarela</p>
+                </div>
+            </div>
+
+            <p class="final-phrase">Estoy listo para ayudarte a transformar tu idea en una solución digital profesional.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 SANTIX by Santiago Varela. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Contact form handler
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const proyecto = document.getElementById('proyecto').value;
+            
+            const mensaje = `Hola Santix, mi nombre es ${nombre}. Estoy interesado en desarrollar ${proyecto} y me gustaría recibir más información y una cotización. Mi correo es ${email}. ¡Gracias!`;
+            
+            const whatsappURL = `https://wa.me/573127682380?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(whatsappURL, '_blank');
+        });
+
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .process-step, .project-card, .plan-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
-
-
