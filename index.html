@@ -1,152 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santix | Creación de Software y Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santix | Desarrollo Digital</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background: #f5f9ff; color: #1f2937; }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#f5f9ff;color:#1f2937;scroll-behavior:smooth}
 
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: #fff;
-      padding: 70px 20px;
-      text-align: center;
-    }
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; max-width: 700px; margin: auto; }
-    header a {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 32px;
-      background: #fff;
-      color: #1e40af;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-    }
+    /* Animaciones */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    section { padding: 70px 20px; max-width: 1200px; margin: auto; }
+    section{padding:80px 20px;max-width:1200px;margin:auto;animation:fadeUp 1s ease}
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
+    /* HERO */
+    header{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:120px 20px;text-align:center}
+    header h1{font-size:3rem;margin-bottom:15px}
+    header p{font-size:1.2rem;max-width:700px;margin:auto}
+    .btn{display:inline-block;margin-top:30px;padding:15px 35px;background:#fff;color:#1e40af;text-decoration:none;border-radius:40px;font-weight:600;transition:.3s}
+    .btn:hover{transform:scale(1.05)}
 
-    .card {
-      background: #fff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-8px); }
-    .card h3 { margin-bottom: 12px; color: #2563eb; }
-    .card p { font-size: 0.95rem; }
+    /* TITULOS */
+    h2{text-align:center;font-size:2.3rem;margin-bottom:50px;color:#1e40af}
 
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .about div h2 { font-size: 2rem; margin-bottom: 15px; }
+    /* SERVICIOS */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+    .card{background:#fff;padding:30px;border-radius:18px;box-shadow:0 15px 35px rgba(0,0,0,.08);transition:.3s}
+    .card:hover{transform:translateY(-10px)}
+    .card h3{color:#2563eb;margin-bottom:10px}
+    .card ul{list-style:none}
+    .card ul li{margin-bottom:6px;font-size:.95rem}
 
-    .cta {
-      background: #1e40af;
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-      border-radius: 20px;
-    }
-    .cta h2 { font-size: 2.2rem; margin-bottom: 15px; }
-    .cta a {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 14px 30px;
-      background: #fff;
-      color: #1e40af;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-    }
+    /* PROCESO */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;text-align:center}
+    .step{background:#eaf0ff;padding:30px;border-radius:20px}
+    .step span{font-size:2.5rem}
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: #0f172a;
-      color: #cbd5f5;
-      font-size: 0.9rem;
-    }
+    /* PLANES */
+    .price{font-size:1.8rem;color:#1e40af;font-weight:700;margin:10px 0}
+    .note{text-align:center;font-size:.9rem;color:#475569;margin-top:20px}
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .about { grid-template-columns: 1fr; }
-    }
+    /* CTA */
+    .cta{background:#1e40af;color:#fff;text-align:center;padding:90px 20px;border-radius:25px}
+    .cta h2{color:#fff}
+
+    /* CONTACTO */
+    .contact{text-align:center}
+    .contact p{margin-bottom:8px}
+
+    /* FOOTER */
+    footer{text-align:center;padding:30px;background:#0f172a;color:#cbd5f5;font-size:.9rem}
+
+    /* WhatsApp flotante */
+    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px 18px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+
+    @media(max-width:768px){header h1{font-size:2.2rem}}
   </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header>
-  <h1>Santix</h1>
-  <p>Creación de software, páginas web y soluciones digitales a la medida para impulsar tu negocio en la era digital.</p>
-  <a href="https://wa.me/573127682380" target="_blank">Contáctanos por WhatsApp</a>
+  <h1>Desarrollo digital para tu negocio</h1>
+  <p>Páginas web, sistemas, redes sociales y diseño profesional para impulsar tu marca</p>
+  <a class="btn" href="https://wa.me/573127682380" target="_blank">📲 Cotiza por WhatsApp</a>
 </header>
 
+<!-- SERVICIOS -->
 <section>
-  <h2 style="text-align:center; margin-bottom:40px;">Nuestros Servicios</h2>
-  <div class="services">
-    <div class="card">
-      <h3>Desarrollo Web</h3>
-      <p>Páginas web modernas, landing pages, tiendas virtuales y sistemas web 100% responsivos.</p>
-    </div>
-    <div class="card">
-      <h3>Software a Medida</h3>
-      <p>Desarrollo de sistemas personalizados para automatizar procesos y mejorar la productividad.</p>
-    </div>
-    <div class="card">
-      <h3>Dominios y Hosting</h3>
-      <p>Configuración de dominio, hosting, SSL y correos corporativos para tu empresa.</p>
-    </div>
-    <div class="card">
-      <h3>Soporte Técnico</h3>
-      <p>Acompañamiento, mantenimiento, actualizaciones y soporte personalizado.</p>
-    </div>
-    <div class="card">
-      <h3>Contenido para Redes</h3>
-      <p>Diseño de flyers, imágenes creativas, banners y contenido visual para redes sociales.</p>
-    </div>
-    <div class="card">
-      <h3>Branding Digital</h3>
-      <p>Logotipos, identidad visual, códigos QR y material digital profesional.</p>
-    </div>
+  <h2>Desarrollo de Software & Web</h2>
+  <div class="grid">
+    <div class="card"><h3>🌐 Páginas Web</h3><p>Diseños modernos, rápidos y adaptables a cualquier dispositivo.</p></div>
+    <div class="card"><h3>📄 Landing Page</h3><p>Páginas enfocadas en convertir visitantes en clientes.</p></div>
+    <div class="card"><h3>🛒 Tiendas Virtuales</h3><p>Catálogo, carrito de compras y pasarela de pago.</p></div>
+    <div class="card"><h3>⚙️ Sistemas a Medida</h3><p>Software personalizado según tu negocio.</p></div>
+    <div class="card"><h3>🌍 Dominios & Hosting</h3><p>Configuración completa con SSL incluido.</p></div>
+    <div class="card"><h3>🛠️ Soporte Técnico</h3><p>Mantenimiento y acompañamiento continuo.</p></div>
   </div>
 </section>
 
-<section class="about">
-  <div>
-    <h2>¿Por qué elegir Santix?</h2>
-    <p>En Santix combinamos tecnología, diseño y estrategia para crear soluciones digitales eficientes, modernas y enfocadas en resultados reales.</p>
-    <br>
-    <p>Trabajamos contigo paso a paso, entendiendo tu idea y convirtiéndola en una solución digital sólida.</p>
-  </div>
-  <div>
-    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72" alt="Tecnología" style="width:100%; border-radius:20px;">
+<section>
+  <h2>Contenido & Diseño Digital</h2>
+  <div class="grid">
+    <div class="card"><h3>🎨 Flyers</h3><p>Diseños atractivos para promociones.</p></div>
+    <div class="card"><h3>📸 Redes Sociales</h3><p>Fotos y videos optimizados para redes.</p></div>
+    <div class="card"><h3>🖌️ Logotipos</h3><p>Identidad visual profesional.</p></div>
+    <div class="card"><h3>🖼️ Banners</h3><p>Diseños digitales impactantes.</p></div>
+    <div class="card"><h3>🔗 Códigos QR</h3><p>QR personalizados para tu marca.</p></div>
+    <div class="card"><h3>💳 Tarjetas Digitales</h3><p>Presentación profesional online.</p></div>
   </div>
 </section>
 
+<!-- PROCESO -->
+
+<section>
+  <h2>¿Cómo trabajo?</h2>
+  <div class="steps">
+    <div class="step"><span>1️⃣</span><p>Escuchamos tu idea</p></div>
+    <div class="step"><span>2️⃣</span><p>Propuesta y precio claro</p></div>
+    <div class="step"><span>3️⃣</span><p>Desarrollo y diseño</p></div>
+    <div class="step"><span>4️⃣</span><p>Entrega + soporte</p></div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section>
+  <h2>Planes y precios</h2>
+  <div class="grid">
+    <div class="card"><h3>Landing Page</h3><p class="price">Desde $XXX</p><p>1 página · Responsive · WhatsApp</p></div>
+    <div class="card"><h3>Web Empresarial</h3><p class="price">Desde $XXX</p><p>Varias secciones · Formulario</p></div>
+    <div class="card"><h3>Tienda Virtual</h3><p class="price">Desde $XXX</p><p>Productos · Carrito · Pagos</p></div>
+    <div class="card"><h3>Sistema a Medida</h3><p class="price">Desde $XXX</p><p>Adaptado a tu negocio</p></div>
+  </div>
+  <p class="note">*Los valores pueden variar según el proyecto.</p>
+</section>
+
+<!-- POR QUE -->
+<section>
+  <h2>¿Por qué elegirme?</h2>
+  <div class="grid">
+    <div class="card">Atención personalizada</div>
+    <div class="card">Precios claros</div>
+    <div class="card">Soporte continuo</div>
+    <div class="card">Diseño moderno</div>
+    <div class="card">Ideal para emprendedores</div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="cta">
-  <h2>¿Listo para llevar tu negocio al siguiente nivel?</h2>
-  <p>Hablemos y creemos juntos tu proyecto digital.</p>
-  <a href="https://wa.me/573127682380" target="_blank">Hablar ahora</a>
+  <h2>¿Listo para llevar tu negocio al mundo digital?</h2>
+  <p>Escríbeme ahora y recibe asesoría gratuita</p>
+  <a class="btn" href="https://wa.me/573127682380" target="_blank">Hablar por WhatsApp</a>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact">
+  <h2>Contacto</h2>
+  <p>¿Tienes un proyecto en mente? Escríbeme y hablemos.</p>
+  <form style="max-width:500px;margin:40px auto;display:grid;gap:15px">
+    <input type="text" placeholder="Nombre" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5">
+    <input type="email" placeholder="Correo" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5">
+    <textarea placeholder="Cuéntame tu idea" rows="4" required style="padding:14px;border-radius:12px;border:1px solid #cbd5f5"></textarea>
+    <button type="submit" class="btn">Enviar mensaje</button>
+  </form>
+  <p>📲 WhatsApp: <strong>312 768 2380</strong></p>
+  <p>📧 contacto@santix.com</p>
 </section>
 
 <footer>
-  © 2025 Santix. Todos los derechos reservados.
+  © 2025 Santix · Desarrollo Digital
 </footer>
+
+<a class="whatsapp" href="https://wa.me/573127682380" target="_blank">💬</a>
 
 </body>
 </html>
