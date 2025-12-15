@@ -31,7 +31,7 @@
             scroll-behavior: smooth;
         }
 
-        /* NAVBAR */
+        /* NAVBAR - CORREGIDO */
         nav {
             position: fixed;
             top: 0;
@@ -39,7 +39,7 @@
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 5%;
+            padding: 0.7rem 5%;
             box-shadow: 0 2px 20px rgba(0, 102, 255, 0.3);
         }
 
@@ -49,20 +49,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 50px;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            font-size: 0.9rem;
-            color: var(--white);
-            font-weight: 300;
-            margin-left: 0.5rem;
+        .logo img {
+            width: 90px;
+            height: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -76,6 +74,7 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -327,6 +326,7 @@
             margin-bottom: 1rem;
         }
 
+        /* PROYECTOS - CORREGIDO */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -335,23 +335,48 @@
         }
 
         .project-card {
-            height: 300px;
+            height: 350px;
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 26, 61, 0.3));
             border-radius: 15px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
             border: 1px solid rgba(0, 102, 255, 0.3);
             transition: all 0.3s;
             cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--light-blue);
+            text-align: center;
         }
 
         .project-card:hover {
             transform: scale(1.05);
             border-color: var(--primary-blue);
             box-shadow: 0 10px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
         }
 
         /* PLANES */
@@ -606,6 +631,10 @@
                 padding: 0.8rem 1.5rem;
                 font-size: 1rem;
             }
+
+            .logo img {
+                width: 70px;
+            }
         }
     </style>
 </head>
@@ -613,12 +642,8 @@
     <!-- NAVBAR -->
     <nav>
         <div class="nav-container">
-            <div class="logo" style="display:flex; align-items:center;">
-              <img 
-                src="/img/logoprincipal.png" 
-                alt="Santix - Santiago Varela"
-                style="width:130px; height:auto; object-fit:contain;"
-              >
+            <div class="logo">
+                <img src="img/logoprincipal.png" alt="Santix - Santiago Varela">
             </div>
 
             <ul class="nav-links" id="navLinks">
@@ -640,7 +665,7 @@
     <section id="inicio">
         <div class="hero-content">
             <h1>Impulsa tu negocio con tecnología inteligente</h1>
-            <p class="subtitle">En <strong>Antix by Santix</strong> desarrollamos páginas web, landing pages y software a medida que convierten ideas en resultados reales.</p>
+            <p class="subtitle">En <strong>Santix by Santiago Varela</strong> desarrollamos páginas web, landing pages y software a medida que convierten ideas en resultados reales.</p>
             <p class="description">Desarrollador de software con más de <strong>5 años de experiencia</strong>, aportando soluciones digitales a empresas y emprendedores. Ofrezco desarrollo web, sistemas personalizados, dominio, hosting y soporte profesional.</p>
             
             <div class="cta-buttons">
@@ -759,39 +784,37 @@
 
         <h2 class="section-title" style="margin-top: 5rem;">Proyectos Realizados</h2>
 
-<div class="projects-grid">
-    
-    <div class="project-card">
-        <img src="img/easy.jpg" alt="Proyecto Empresarial">
-        <h3>Proyecto Empresarial</h3>
-    </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="img/easy.jpg" alt="Proyecto Empresarial">
+                <h3>Proyecto Empresarial</h3>
+            </div>
 
-    <div class="project-card">
-        <img src="img/distrycali.jpg" alt="Proyecto Comercial">
-        <h3>Proyecto Comercial E-Commerce</h3>
-    </div>
+            <div class="project-card">
+                <img src="img/distrycali.jpg" alt="Proyecto Comercial">
+                <h3>E-Commerce Comercial</h3>
+            </div>
 
-    <div class="project-card">
-        <img src="img/tumicro.png" alt="Sistema a Medida">
-        <h3>Sistema a Medida Para PYMES</h3>
-    </div>
+            <div class="project-card">
+                <img src="img/tumicro.png" alt="Sistema a Medida">
+                <h3>Sistema PYMES</h3>
+            </div>
 
-    <div class="project-card">
-        <img src="img/lavaya.png" alt="Landing Page">
-        <h3>Landing Page</h3>
-    </div>
+            <div class="project-card">
+                <img src="img/lavaya.png" alt="Landing Page">
+                <h3>Landing Page</h3>
+            </div>
 
-    <div class="project-card">
-        <img src="img/surticampo.jpg" alt="Proyecto de Marca">
-        <h3>Proyecto 5</h3>
-    </div>
+            <div class="project-card">
+                <img src="img/surticampo.jpg" alt="Proyecto de Marca">
+                <h3>Proyecto de Marca</h3>
+            </div>
 
-    <div class="project-card">
-        <img src="img/logoprincipal.png" alt="Plataforma Web">
-        <h3>Plataforma Web</h3>
-    </div>
-
-</div>
+            <div class="project-card">
+                <img src="img/logoprincipal.png" alt="Plataforma Web">
+                <h3>Plataforma Web</h3>
+            </div>
+        </div>
 
         <p class="closing-text">Cada proyecto refleja calidad, funcionalidad y soluciones reales.</p>
     </section>
@@ -963,4 +986,3 @@
     </script>
 </body>
 </html>
-
