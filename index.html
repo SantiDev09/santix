@@ -1,761 +1,1169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SANTIX - Soluciones Digitales Profesionales</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-      <div class="container">
-        <div class="nav-wrapper">
-          <div class="logo">
-            <img src="img/logoprincipal.png" alt="Santix Logo" />
-            <span>SANTIX</span>
-          </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANTIX · Desarrollador de Software</title>
+<meta name="description" content="Portafolio de SANTIX, Desarrollador de Software full-stack especializado en Vue.js, PHP y bases de datos.">
 
-          <ul class="nav-menu" id="navMenu">
-            <li><a href="#inicio" class="nav-link">Inicio</a></li>
-            <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-            <li><a href="#servicios" class="nav-link">Servicios</a></li>
-            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-            <li><a href="#planes" class="nav-link">Planes</a></li>
-            <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          </ul>
+<!-- ===== Fuentes: Poppins (display) + Inter (texto) ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-          <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </nav>
+<!-- ===== Font Awesome (iconos generales) ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- ===== Devicon (iconos de tecnologías) ===== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero">
-      <div class="hero-background">
-        <div class="gradient-sphere sphere-1"></div>
-        <div class="gradient-sphere sphere-2"></div>
-        <div class="gradient-sphere sphere-3"></div>
-      </div>
+<style>
+/* ============================================================
+   0. RESET Y VARIABLES GLOBALES
+   ============================================================ */
+:root{
+  /* Paleta principal: fondo oscuro con acentos neón */
+  --bg-void:      #07070c;   /* fondo más profundo */
+  --bg-base:      #0c0c16;   /* fondo principal */
+  --bg-elevated:  #12121f;   /* tarjetas */
+  --bg-elevated-2:#171728;   /* tarjetas hover */
+  --line:         rgba(255,255,255,.08);
 
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="title-gradient">Transformamos</span> tus ideas en
-            <span class="title-gradient">soluciones digitales</span>
-          </h1>
-          <p class="hero-subtitle">
-            Desarrollo web, software a medida y diseño profesional para impulsar
-            tu negocio
-          </p>
+  --electric:     #00d4ff;   /* azul eléctrico / cian */
+  --violet:       #8b5cf6;   /* morado */
+  --pink:         #ff2d95;   /* rosa neón */
+  --lime:         #ccff00;   /* verde lima (acento puntual) */
 
-          <div class="hero-buttons">
-            <a
-              href="https://wa.me/573127682380?text=Hola%20Santix,%20quiero%20iniciar%20mi%20proyecto%20digital"
-              class="btn btn-primary"
-            >
-              <i class="fab fa-whatsapp"></i> Iniciar Proyecto
-            </a>
-            <a href="#portafolio" class="btn btn-secondary">
-              <i class="fas fa-eye"></i> Ver Proyectos
-            </a>
-          </div>
+  --text-hi:      #f3f3fb;
+  --text-mid:     #b7b7cf;
+  --text-low:     #7a7a94;
 
-          <div class="hero-stats">
-            <div class="stat-item">
-              <h3>5+</h3>
-              <p>Años de experiencia</p>
-            </div>
-            <div class="stat-item">
-              <h3>50+</h3>
-              <p>Proyectos completados</p>
-            </div>
-            <div class="stat-item">
-              <h3>100%</h3>
-              <p>Clientes satisfechos</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  --grad-primary: linear-gradient(135deg, var(--electric), var(--violet) 55%, var(--pink));
+  --grad-soft:    linear-gradient(135deg, rgba(0,212,255,.12), rgba(139,92,246,.12));
 
-    <!-- NOSOTROS -->
-    <section id="nosotros" class="nosotros">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">¿Quiénes somos?</span>
-          <h2 class="section-title">
-            Tu aliado en
-            <span class="text-gradient">transformación digital</span>
-          </h2>
-        </div>
+  --font-display: 'Poppins', sans-serif;
+  --font-body:    'Inter', sans-serif;
 
-        <div class="nosotros-content">
-          <div class="nosotros-text">
-            <h3>Santiago Varela - Desarrollador Full Stack</h3>
-            <p>
-              Con más de 5 años de experiencia en desarrollo web y software, me
-              especializo en crear soluciones digitales que impulsan negocios y
-              transforman ideas en realidad.
-            </p>
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
 
-            <div class="nosotros-features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <div>
-                  <h4>Experiencia comprobada</h4>
-                  <p>Más de 50 proyectos exitosos en diversos sectores</p>
-                </div>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <div>
-                  <h4>Soluciones personalizadas</h4>
-                  <p>Cada proyecto adaptado a tus necesidades específicas</p>
-                </div>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <div>
-                  <h4>Soporte continuo</h4>
-                  <p>Acompañamiento técnico en cada etapa del proyecto</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  --ease: cubic-bezier(.16,.84,.44,1);
+}
 
-          <div class="nosotros-image">
-            <div class="image-wrapper">
-              <img src="img/logoprincipal.png" alt="Santix" />
-              <div class="image-decoration"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg-base);
+  color:var(--text-mid);
+  font-family:var(--font-body);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+::selection{ background:var(--violet); color:#fff; }
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="servicios">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Lo que hacemos</span>
-          <h2 class="section-title">
-            Servicios que <span class="text-gradient">impulsan tu negocio</span>
-          </h2>
-        </div>
+/* Respeta usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
 
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3>Desarrollo Web</h3>
-            <p>
-              Sitios web profesionales, modernos y responsive que se adaptan a
-              cualquier dispositivo
-            </p>
-          </div>
+/* Scrollbar personalizada */
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:var(--bg-void); }
+::-webkit-scrollbar-thumb{ background:linear-gradient(var(--electric),var(--pink)); border-radius:10px; }
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-rocket"></i>
-            </div>
-            <h3>Landing Pages</h3>
-            <p>
-              Páginas de aterrizaje optimizadas para maximizar conversiones y
-              captar clientes
-            </p>
-          </div>
+.container{ width:min(1180px, 92%); margin-inline:auto; }
+.section-pad{ padding:120px 0; }
+@media(max-width:768px){ .section-pad{ padding:80px 0; } }
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <h3>Software a Medida</h3>
-            <p>
-              Sistemas personalizados para automatizar procesos y aumentar
-              productividad
-            </p>
-          </div>
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--font-display); font-weight:600; font-size:.78rem;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--electric);
+  margin-bottom:18px;
+}
+.eyebrow::before{
+  content:''; width:26px; height:2px; background:var(--grad-primary); border-radius:2px;
+}
+.section-title{
+  font-family:var(--font-display); font-weight:800; color:var(--text-hi);
+  font-size:clamp(1.9rem, 3.6vw, 2.9rem); letter-spacing:-.02em; margin-bottom:16px;
+}
+.section-sub{
+  color:var(--text-low); max-width:560px; font-size:1.02rem;
+}
+.gradient-text{
+  background:var(--grad-primary); -webkit-background-clip:text; background-clip:text; color:transparent;
+  background-size:200% auto; animation:shine 6s linear infinite;
+}
+@keyframes shine{ to{ background-position:200% center; } }
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-shopping-cart"></i>
-            </div>
-            <h3>E-Commerce</h3>
-            <p>
-              Tiendas online completas y seguras para vender tus productos 24/7
-            </p>
-          </div>
+/* ============================================================
+   1. LOADER INICIAL
+   ============================================================ */
+#loader{
+  position:fixed; inset:0; z-index:9999; background:var(--bg-void);
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:22px;
+  transition:opacity .6s var(--ease), visibility .6s var(--ease);
+}
+#loader.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
+.loader-logo{
+  font-family:var(--font-display); font-weight:800; font-size:1.6rem; color:var(--text-hi);
+  letter-spacing:.05em;
+}
+.loader-logo span{ color:var(--electric); }
+.loader-bar{
+  width:220px; height:3px; background:rgba(255,255,255,.08); border-radius:4px; overflow:hidden; position:relative;
+}
+.loader-bar::after{
+  content:''; position:absolute; inset:0; width:40%; border-radius:4px;
+  background:var(--grad-primary); animation:loading 1.1s ease-in-out infinite;
+}
+@keyframes loading{
+  0%{ transform:translateX(-100%); } 100%{ transform:translateX(350%); }
+}
+.loader-tag{ font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text-low); }
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-palette"></i>
-            </div>
-            <h3>Diseño Gráfico</h3>
-            <p>
-              Identidad visual, logos, banners y contenido para redes sociales
-            </p>
-          </div>
+/* ============================================================
+   2. NAVBAR
+   ============================================================ */
+header#navbar{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:22px 0; transition:all .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+header#navbar.scrolled{
+  padding:14px 0; background:rgba(7,7,12,.75); backdrop-filter:blur(16px) saturate(160%);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; }
+.logo{
+  display:flex;
+  align-items:center;
+}
 
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-headset"></i>
-            </div>
-            <h3>Soporte Técnico</h3>
-            <p>Mantenimiento, actualizaciones y acompañamiento continuo</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.logo-img{
+  height:55px;
+  width:auto;
+  display:block;
+  transition:transform .3s var(--ease);
+}
 
-    <!-- PORTAFOLIO -->
-    <section id="portafolio" class="portafolio">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Nuestro trabajo</span>
-          <h2 class="section-title">
-            Proyectos que
-            <span class="text-gradient">hablan por sí mismos</span>
-          </h2>
-        </div>
+.logo:hover .logo-img{
+  transform:scale(1.05);
+}
+.nav-links{ display:flex; align-items:center; gap:38px; }
+.nav-links a{
+  font-size:.92rem; font-weight:500; color:var(--text-mid); position:relative; padding:4px 0;
+  transition:color .3s;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--grad-primary);
+  transition:width .35s var(--ease); border-radius:2px;
+}
+.nav-links a:hover{ color:var(--text-hi); }
+.nav-links a:hover::after{ width:100%; }
+.nav-cta{
+  padding:11px 24px; border-radius:999px; font-weight:600; font-size:.88rem;
+  background:var(--grad-primary); color:#080810; position:relative; overflow:hidden;
+  box-shadow:0 4px 20px rgba(139,92,246,.35);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,212,255,.45); }
+.nav-toggle{ display:none; font-size:1.4rem; color:var(--text-hi); }
 
-        <!-- Portfolio Categories -->
-        <div class="portfolio-categories">
-          <div class="category-section">
-            <h3 class="category-title">Landing Pages</h3>
-            <div class="portfolio-grid">
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/lavaya.png" alt="Landing Page 1" />
-                  <div class="portfolio-overlay">
-                    <h4>La Vaya</h4>
-                    <p>Landing page para restaurante</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/easy.jpg" alt="Landing Page 2" />
-                  <div class="portfolio-overlay">
-                    <h4>Easy Solutions</h4>
-                    <p>Landing empresarial</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/surticampo.jpg" alt="Landing Page 3" />
-                  <div class="portfolio-overlay">
-                    <h4>Surticampo</h4>
-                    <p>Landing para negocio agrícola</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/distrycali.jpg" alt="Landing Page 4" />
-                  <div class="portfolio-overlay">
-                    <h4>Distrycali</h4>
-                    <p>Landing comercial</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+@media(max-width:900px){
+  .nav-links{
+    position:fixed; top:0; right:-100%; height:100vh; width:min(320px,80%);
+    background:rgba(9,9,16,.98); backdrop-filter:blur(20px);
+    flex-direction:column; justify-content:center; gap:32px;
+    transition:right .5s var(--ease); border-left:1px solid var(--line);
+  }
+  .nav-links.open{ right:0; }
+  .nav-toggle{ display:block; z-index:1100; }
+  .nav-cta{ display:none; }
+}
 
-          <div class="category-section">
-            <h3 class="category-title">Páginas Web Corporativas</h3>
-            <div class="portfolio-grid">
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/easy.jpg" alt="Web 1" />
-                  <div class="portfolio-overlay">
-                    <h4>Sitio Corporativo</h4>
-                    <p>Plataforma empresarial completa</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/distrycali.jpg" alt="Web 2" />
-                  <div class="portfolio-overlay">
-                    <h4>Portal Comercial</h4>
-                    <p>Web con catálogo de productos</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/logoprincipal.png" alt="Web 3" />
-                  <div class="portfolio-overlay">
-                    <h4>Sitio Profesional</h4>
-                    <p>Web para servicios</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/surticampo.jpg" alt="Web 4" />
-                  <div class="portfolio-overlay">
-                    <h4>Portal de Marca</h4>
-                    <p>Web institucional</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+/* ============================================================
+   3. HERO
+   ============================================================ */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:center;
+  overflow:hidden; padding-top:100px;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 15%, rgba(0,212,255,.16), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 85% 30%, rgba(255,45,149,.14), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 90%, rgba(139,92,246,.16), transparent 60%),
+    var(--bg-void);
+}
+#particle-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:1; }
+.hero-grid-overlay{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%);
+}
+.hero-inner{ position:relative; z-index:2; text-align:center; margin-inline:auto; }
+.hero-badge{
+  display:inline-flex; align-items:center; gap:10px; padding:9px 18px; border-radius:999px;
+  background:rgba(255,255,255,.04); border:1px solid var(--line); font-size:.82rem; color:var(--text-mid);
+  margin-bottom:28px; backdrop-filter:blur(6px);
+}
+.hero-badge .pulse{
+  width:8px; height:8px; border-radius:50%; background:var(--lime); position:relative;
+  box-shadow:0 0 10px var(--lime);
+}
+.hero-badge .pulse::after{
+  content:''; position:absolute; inset:-4px; border-radius:50%; border:1px solid var(--lime);
+  animation:pulse 1.8s ease-out infinite;
+}
+@keyframes pulse{ 0%{ transform:scale(.6); opacity:1; } 100%{ transform:scale(1.9); opacity:0; } }
 
-          <div class="category-section">
-            <h3 class="category-title">Diseños Web Modernos</h3>
-            <div class="portfolio-grid">
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/lavaya.png" alt="Diseño 1" />
-                  <div class="portfolio-overlay">
-                    <h4>Diseño Moderno</h4>
-                    <p>UI/UX contemporáneo</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/tumicro.png" alt="Diseño 2" />
-                  <div class="portfolio-overlay">
-                    <h4>Diseño Minimalista</h4>
-                    <p>Interfaz limpia y funcional</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/easy.jpg" alt="Diseño 3" />
-                  <div class="portfolio-overlay">
-                    <h4>Diseño Corporativo</h4>
-                    <p>Visual profesional</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/distrycali.jpg" alt="Diseño 4" />
-                  <div class="portfolio-overlay">
-                    <h4>Diseño Comercial</h4>
-                    <p>Orientado a ventas</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+.hero h1{
+  font-family:var(--font-display); font-weight:900; letter-spacing:-.03em;
+  font-size:clamp(2.4rem, 7vw, 5.2rem); color:var(--text-hi); line-height:1.05;
+  margin-bottom:22px;
+}
+.hero h1 .line{ display:block; overflow:hidden; }
+.hero h1 .reveal-word{
+  display:inline-block; transform:translateY(115%); animation:wordUp .9s var(--ease) forwards;
+}
+@keyframes wordUp{ to{ transform:translateY(0); } }
 
-          <div class="category-section">
-            <h3 class="category-title">Software & Sistemas</h3>
-            <div class="portfolio-grid">
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/tumicro.png" alt="Software 1" />
-                  <div class="portfolio-overlay">
-                    <h4>Sistema PYMES</h4>
-                    <p>Software de gestión</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/easy.jpg" alt="Software 2" />
-                  <div class="portfolio-overlay">
-                    <h4>Plataforma Web</h4>
-                    <p>Sistema personalizado</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/distrycali.jpg" alt="Software 3" />
-                  <div class="portfolio-overlay">
-                    <h4>E-Commerce</h4>
-                    <p>Tienda online completa</p>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-item">
-                <div class="portfolio-image">
-                  <img src="img/logoprincipal.png" alt="Software 4" />
-                  <div class="portfolio-overlay">
-                    <h4>Sistema a Medida</h4>
-                    <p>Solución empresarial</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+.glitch{
+  position:relative; display:inline-block;
+  background:var(--grad-primary); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.glitch::before, .glitch::after{
+  content:attr(data-text); position:absolute; left:0; top:0; width:100%; height:100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  background:var(--grad-primary);
+}
+.glitch::before{
+  animation:glitchTop 4.5s infinite linear alternate-reverse;
+  clip-path:polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform:translate(-2px,-1px);
+}
+.glitch::after{
+  animation:glitchBottom 3.7s infinite linear alternate-reverse;
+  clip-path:polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  transform:translate(2px,1px);
+}
+@keyframes glitchTop{
+  0%,88%,100%{ transform:translate(-2px,-1px); opacity:.85; }
+  90%{ transform:translate(3px,-2px); opacity:.5; }
+  92%{ transform:translate(-4px,1px); }
+  94%{ transform:translate(2px,2px); }
+}
+@keyframes glitchBottom{
+  0%,88%,100%{ transform:translate(2px,1px); opacity:.85; }
+  89%{ transform:translate(-3px,2px); opacity:.5; }
+  93%{ transform:translate(4px,-1px); }
+  95%{ transform:translate(-2px,-2px); }
+}
 
-        <!-- Carousel de Proyectos Destacados -->
-        <div class="featured-projects">
-          <h3 class="category-title">Proyectos Destacados</h3>
-          <div class="carousel-container">
-            <button class="carousel-btn prev" id="prevBtn">
-              <i class="fas fa-chevron-left"></i>
-            </button>
+.hero p.sub{
+  font-size:clamp(1rem, 1.6vw, 1.18rem); color:var(--text-mid); max-width:640px;
+  margin:0 auto 40px; opacity:0; animation:fadeUp .9s var(--ease) .5s forwards;
+}
+.hero p.sub strong{ color:var(--text-hi); font-weight:600; }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:translateY(0); } }
 
-            <div class="carousel-wrapper">
-              <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide">
-                  <img src="img/easy.jpg" alt="Proyecto 1" />
-                  <div class="carousel-info">
-                    <h4>Easy Solutions</h4>
-                    <p>
-                      Plataforma empresarial completa con sistema de gestión
-                    </p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="img/distrycali.jpg" alt="Proyecto 2" />
-                  <div class="carousel-info">
-                    <h4>Distrycali</h4>
-                    <p>E-commerce para distribuidora con catálogo online</p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="img/tumicro.png" alt="Proyecto 3" />
-                  <div class="carousel-info">
-                    <h4>Tu Micro</h4>
-                    <p>Sistema de gestión para pequeñas empresas</p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="img/lavaya.png" alt="Proyecto 4" />
-                  <div class="carousel-info">
-                    <h4>La Vaya</h4>
-                    <p>Landing page para restaurante con reservas online</p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="img/surticampo.jpg" alt="Proyecto 5" />
-                  <div class="carousel-info">
-                    <h4>Surticampo</h4>
-                    <p>Portal web para productos agrícolas</p>
-                  </div>
-                </div>
-                <div class="carousel-slide">
-                  <img src="img/logoprincipal.png" alt="Proyecto 6" />
-                  <div class="carousel-info">
-                    <h4>Santix Portfolio</h4>
-                    <p>Plataforma de servicios digitales profesionales</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+.hero-actions{
+  display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s var(--ease) .7s forwards;
+}
+.btn{
+  font-family:var(--font-display); font-weight:600; font-size:.95rem; padding:16px 34px;
+  border-radius:999px; position:relative; display:inline-flex; align-items:center; gap:10px;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.btn-primary{
+  background:var(--grad-primary); background-size:220% auto; color:#070710;
+  box-shadow:0 8px 28px rgba(0,212,255,.25);
+}
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.02); background-position:right center;
+  box-shadow:0 14px 40px rgba(255,45,149,.4);
+}
+.btn-ghost{
+  border:1px solid var(--line); color:var(--text-hi); background:rgba(255,255,255,.02);
+}
+.btn-ghost:hover{
+  border-color:var(--electric); box-shadow:0 0 0 1px var(--electric), 0 0 24px rgba(0,212,255,.25);
+  transform:translateY(-3px);
+}
 
-            <button class="carousel-btn next" id="nextBtn">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
+.hero-stats{
+  display:flex; gap:56px; justify-content:center; margin-top:72px; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s var(--ease) .9s forwards;
+}
+.hero-stats .stat b{
+  font-family:var(--font-display); font-size:2rem; font-weight:800; color:var(--text-hi); display:block;
+}
+.hero-stats .stat span{ font-size:.8rem; color:var(--text-low); letter-spacing:.05em; text-transform:uppercase; }
 
-          <div class="carousel-dots" id="carouselDots"></div>
-        </div>
-      </div>
-    </section>
+.scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-low); font-size:.72rem;
+  letter-spacing:.15em; text-transform:uppercase;
+}
+.scroll-cue .wheel{
+  width:22px; height:36px; border:2px solid var(--line); border-radius:20px; position:relative;
+}
+.scroll-cue .wheel::after{
+  content:''; position:absolute; top:6px; left:50%; translate:-50% 0; width:4px; height:8px; border-radius:3px;
+  background:var(--electric); animation:scrollDot 1.6s ease-in-out infinite;
+}
+@keyframes scrollDot{ 0%{ opacity:1; top:6px; } 70%{ opacity:0; top:20px; } 100%{ opacity:0; top:6px; } }
 
-    <!-- PLANES -->
-    <section id="planes" class="planes">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Inversión</span>
-          <h2 class="section-title">
-            Planes diseñados
-            <span class="text-gradient">para cada necesidad</span>
-          </h2>
-        </div>
+/* ============================================================
+   4. SCROLL REVEAL (Intersection Observer)
+   ============================================================ */
+.reveal{ opacity:0; transform:translateY(38px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.visible{ opacity:1; transform:translateY(0); }
+.reveal-delay-1.visible{ transition-delay:.1s; }
+.reveal-delay-2.visible{ transition-delay:.2s; }
+.reveal-delay-3.visible{ transition-delay:.3s; }
+.reveal-delay-4.visible{ transition-delay:.4s; }
 
-        <div class="plans-grid">
-          <div class="plan-card">
-            <div class="plan-header">
-              <h3>Básico</h3>
-              <p class="plan-subtitle">Ideal para emprendedores</p>
-            </div>
-            <div class="plan-price">
-              <span class="currency">$</span>
-              <span class="amount">600K</span>
-              <span class="period">- $1.5M COP</span>
-            </div>
-            <ul class="plan-features">
-              <li><i class="fas fa-check"></i> Landing page básica</li>
-              <li><i class="fas fa-check"></i> Diseño responsive</li>
-              <li><i class="fas fa-check"></i> Formulario de contacto</li>
-              <li><i class="fas fa-check"></i> Integración WhatsApp</li>
-              <li><i class="fas fa-check"></i> 1 mes de soporte</li>
-            </ul>
-            <a
-              href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20Básico.%20Me%20gustaría%20recibir%20más%20información."
-              class="btn btn-plan"
-            >
-              Adquirir Plan
-            </a>
-          </div>
+/* ============================================================
+   5. TECNOLOGÍAS
+   ============================================================ */
+.tech-section{ position:relative; }
+.tech-header{ text-align:center; margin-bottom:64px; }
+.tech-header .section-sub{ margin-inline:auto; }
+.tech-grid{
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:22px;
+}
+@media(max-width:900px){ .tech-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:520px){ .tech-grid{ grid-template-columns:repeat(2,1fr); } }
 
-          <div class="plan-card featured">
-            <div class="plan-badge">Más Popular</div>
-            <div class="plan-header">
-              <h3>Profesional</h3>
-              <p class="plan-subtitle">Ideal para PYMES</p>
-            </div>
-            <div class="plan-price">
-              <span class="currency">$</span>
-              <span class="amount">1.8M</span>
-              <span class="period">- $5M COP</span>
-            </div>
-            <ul class="plan-features">
-              <li><i class="fas fa-check"></i> Web corporativa completa</li>
-              <li><i class="fas fa-check"></i> Diseño personalizado</li>
-              <li><i class="fas fa-check"></i> Panel de administración</li>
-              <li><i class="fas fa-check"></i> SEO básico incluido</li>
-              <li><i class="fas fa-check"></i> 3 meses de soporte</li>
-              <li><i class="fas fa-check"></i> Hosting incluido (1 año)</li>
-            </ul>
-            <a
-              href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20Profesional.%20Me%20gustaría%20recibir%20más%20información."
-              class="btn btn-plan"
-            >
-              Adquirir Plan
-            </a>
-          </div>
+.tech-card{
+  position:relative; background:var(--bg-elevated); border:1px solid var(--line);
+  border-radius:var(--radius-md); padding:30px 16px 24px; text-align:center;
+  transition:transform .45s var(--ease), border-color .4s, background .4s, box-shadow .4s;
+  isolation:isolate; overflow:hidden;
+}
+.tech-card::before{
+  content:''; position:absolute; inset:0; z-index:-1; opacity:0; transition:opacity .4s;
+  background:radial-gradient(circle at 50% 0%, var(--tc-color, var(--electric)) 0%, transparent 70%);
+}
+.tech-card i, .tech-card .emoji{
+  font-size:2.6rem; display:block; margin-bottom:14px; color:var(--tc-color, var(--electric));
+  transition:transform .5s var(--ease), filter .5s;
+}
+.tech-card span{
+  font-family:var(--font-display); font-weight:600; font-size:.86rem; color:var(--text-mid);
+  transition:color .4s;
+}
+.tech-card:hover{
+  transform:translateY(-12px) rotate(-3deg) scale(1.06);
+  border-color:var(--tc-color, var(--electric));
+  background:var(--bg-elevated-2);
+  box-shadow:0 20px 45px -12px var(--tc-color, var(--electric));
+}
+.tech-card:hover::before{ opacity:.22; }
+.tech-card:hover i, .tech-card:hover .emoji{
+  transform:scale(1.25) rotate(8deg);
+  filter:drop-shadow(0 0 14px var(--tc-color, var(--electric)));
+}
+.tech-card:hover span{ color:var(--text-hi); }
+.tech-card.more{ display:flex; flex-direction:column; align-items:center; justify-content:center; }
 
-          <div class="plan-card">
-            <div class="plan-header">
-              <h3>Premium</h3>
-              <p class="plan-subtitle">Ideal para empresas</p>
-            </div>
-            <div class="plan-price">
-              <span class="currency">$</span>
-              <span class="amount">5M+</span>
-              <span class="period">COP</span>
-            </div>
-            <ul class="plan-features">
-              <li><i class="fas fa-check"></i> Software a medida</li>
-              <li><i class="fas fa-check"></i> Funcionalidades avanzadas</li>
-              <li><i class="fas fa-check"></i> Integraciones API</li>
-              <li><i class="fas fa-check"></i> Panel admin completo</li>
-              <li><i class="fas fa-check"></i> 6 meses de soporte</li>
-              <li><i class="fas fa-check"></i> Capacitación incluida</li>
-              <li><i class="fas fa-check"></i> Hosting premium (1 año)</li>
-            </ul>
-            <a
-              href="https://wa.me/573127682380?text=Hola%20Santix,%20estoy%20interesado%20en%20el%20Plan%20Premium.%20Me%20gustaría%20recibir%20más%20información."
-              class="btn btn-plan"
-            >
-              Adquirir Plan
-            </a>
-          </div>
-        </div>
+/* ============================================================
+   6. CARRUSEL DE PROYECTOS
+   ============================================================ */
+.carousel-section{ position:relative; }
+.carousel-wrap{ position:relative; }
+.carousel-track-view{ overflow:hidden; border-radius:var(--radius-lg); }
+.carousel-track{
+  display:flex; transition:transform .65s var(--ease);
+}
+.project-card{
+  min-width:100%; display:grid; grid-template-columns:1.1fr .9fr; align-items:stretch;
+  background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden;
+}
+@media(max-width:800px){ .project-card{ grid-template-columns:1fr; } }
+.project-media{ position:relative; overflow:hidden; min-height:320px; }
+.project-media img{ width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
+.project-card:hover .project-media img{ transform:scale(1.08); }
+.project-media .tag{
+  position:absolute; top:20px; left:20px; padding:7px 16px; border-radius:999px; font-size:.75rem;
+  font-weight:600; font-family:var(--font-display); background:rgba(7,7,12,.7); backdrop-filter:blur(6px);
+  border:1px solid var(--line); color:var(--electric);
+}
+.project-info{ padding:44px; display:flex; flex-direction:column; justify-content:center; gap:16px; }
+.project-info h3{ font-family:var(--font-display); font-size:1.6rem; font-weight:700; color:var(--text-hi); }
+.project-info p{ color:var(--text-low); font-size:.98rem; }
+.project-stack{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+.project-stack span{
+  padding:6px 13px; font-size:.76rem; font-weight:600; border-radius:8px;
+  background:rgba(255,255,255,.04); border:1px solid var(--line); color:var(--text-mid);
+}
+.project-info .proj-link{
+  margin-top:10px; display:inline-flex; align-items:center; gap:8px; font-weight:600; color:var(--electric);
+  font-family:var(--font-display); font-size:.9rem; width:fit-content;
+}
+.project-info .proj-link i{ transition:transform .3s; }
+.project-info .proj-link:hover i{ transform:translateX(5px); }
 
-        <div class="additional-services">
-          <h3>Servicios Adicionales</h3>
-          <div class="services-list">
-            <div class="addon-item">
-              <i class="fas fa-paint-brush"></i>
-              <h4>Diseño & Branding</h4>
-              <p>Desde $150.000 COP</p>
-            </div>
-            <div class="addon-item">
-              <i class="fas fa-server"></i>
-              <h4>Dominio & Hosting</h4>
-              <p>Desde $250.000 COP/año</p>
-            </div>
-            <div class="addon-item">
-              <i class="fas fa-life-ring"></i>
-              <h4>Soporte Mensual</h4>
-              <p>Desde $200.000 COP/mes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+.carousel-controls{ display:flex; align-items:center; justify-content:center; gap:26px; margin-top:34px; }
+.car-arrow{
+  width:50px; height:50px; border-radius:50%; border:1px solid var(--line); color:var(--text-hi);
+  display:flex; align-items:center; justify-content:center; font-size:1.05rem;
+  transition:all .35s var(--ease); background:var(--bg-elevated);
+}
+.car-arrow:hover{ background:var(--grad-primary); color:#08080f; border-color:transparent; box-shadow:0 8px 24px rgba(139,92,246,.4); transform:scale(1.08); }
+.carousel-dots{ display:flex; gap:10px; }
+.carousel-dots button{
+  width:9px; height:9px; border-radius:50%; background:var(--line); transition:all .35s var(--ease);
+}
+.carousel-dots button.active{ width:28px; border-radius:6px; background:var(--grad-primary); }
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="contacto">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Hablemos</span>
-          <h2 class="section-title">
-            ¿Listo para <span class="text-gradient">comenzar tu proyecto</span>?
-          </h2>
-        </div>
+/* ============================================================
+   7. SOBRE MÍ
+   ============================================================ */
+.about-section{ position:relative; }
+.about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:center; }
+@media(max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:44px; } }
+.about-media{ position:relative; }
+.about-media .frame{
+  position:relative; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6);
+}
+.about-media img{ width:100%; aspect-ratio:4/5; object-fit:cover; filter:saturate(1.05) contrast(1.02); }
+.about-media .frame::after{
+  content:''; position:absolute; inset:0; background:linear-gradient(200deg, rgba(0,212,255,.18), transparent 45%, rgba(255,45,149,.16));
+  mix-blend-mode:overlay;
+}
+.about-media .badge-float{
+  position:absolute; bottom:-24px; right:-24px; background:var(--bg-elevated); border:1px solid var(--line);
+  padding:18px 22px; border-radius:var(--radius-md); box-shadow:0 20px 40px -10px rgba(0,0,0,.5);
+  display:flex; align-items:center; gap:14px;
+}
+@media(max-width:520px){ .about-media .badge-float{ right:0; bottom:-18px; padding:14px 16px; } }
+.about-media .badge-float i{ font-size:1.6rem; color:var(--lime); }
+.about-media .badge-float b{ display:block; font-family:var(--font-display); color:var(--text-hi); font-size:1.1rem; }
+.about-media .badge-float span{ font-size:.72rem; color:var(--text-low); text-transform:uppercase; letter-spacing:.08em; }
 
-        <div class="contact-wrapper">
-          <div class="contact-info">
-            <h3>Información de Contacto</h3>
-            <p>
-              Estoy disponible para ayudarte a transformar tu idea en realidad
-            </p>
+.about-text p{ margin-bottom:18px; color:var(--text-mid); font-size:1.03rem; }
+.about-text p strong{ color:var(--text-hi); }
+.about-highlights{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:30px; }
+.about-highlights li{
+  display:flex; gap:12px; align-items:flex-start; font-size:.9rem; color:var(--text-mid);
+}
+.about-highlights i{ color:var(--electric); margin-top:3px; }
 
-            <div class="contact-items">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fab fa-whatsapp"></i>
-                </div>
-                <div class="contact-details">
-                  <h4>WhatsApp</h4>
-                  <a href="https://wa.me/573127682380">+57 312 768 2380</a>
-                </div>
-              </div>
+/* ============================================================
+   8. SERVICIOS
+   ============================================================ */
+.services-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; }
+@media(max-width:900px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:600px){ .services-grid{ grid-template-columns:1fr; } }
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-details">
-                  <h4>Email</h4>
-                  <a href="mailto:santidevolper2002@gmail.com"
-                    >santidevolper2002@gmail.com</a
-                  >
-                </div>
-              </div>
+.service-card{
+  background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:36px 30px; position:relative; overflow:hidden;
+  transition:transform .4s var(--ease), border-color .4s, box-shadow .4s;
+}
+.service-card::before{
+  content:''; position:absolute; inset:0; opacity:0; transition:opacity .4s;
+  background:var(--grad-soft);
+}
+.service-card:hover{
+  transform:translateY(-10px); border-color:var(--sc-color, var(--violet));
+  box-shadow:0 24px 50px -18px var(--sc-color, var(--violet));
+}
+.service-card:hover::before{ opacity:1; }
+.service-icon{
+  width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.05); font-size:1.4rem; color:var(--sc-color, var(--violet)); margin-bottom:22px;
+  position:relative; z-index:1; border:1px solid var(--line); transition:transform .4s var(--ease);
+}
+.service-card:hover .service-icon{ transform:scale(1.1) rotate(-6deg); }
+.service-card h3{ font-family:var(--font-display); font-size:1.18rem; color:var(--text-hi); margin-bottom:10px; position:relative; z-index:1; }
+.service-card p{ font-size:.92rem; color:var(--text-low); position:relative; z-index:1; }
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-details">
-                  <h4>Ubicación</h4>
-                  <p>Popayán, Colombia</p>
-                </div>
-              </div>
-            </div>
+/* ============================================================
+   9. CONTACTO
+   ============================================================ */
+.contact-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; }
+@media(max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:40px; } }
 
-            <div class="social-links">
-              <a href="#" class="social-link"
-                ><i class="fab fa-facebook"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
+.contact-info-list{ display:flex; flex-direction:column; gap:22px; margin-top:32px; }
+.contact-info-item{ display:flex; gap:16px; align-items:center; }
+.contact-info-item .ic{
+  width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  background:var(--bg-elevated); border:1px solid var(--line); color:var(--electric); font-size:1.1rem; flex-shrink:0;
+}
+.contact-info-item b{ display:block; color:var(--text-hi); font-family:var(--font-display); font-size:.95rem; }
+.contact-info-item span{ font-size:.86rem; color:var(--text-low); }
 
-          <div class="contact-form-wrapper">
-            <form class="contact-form" id="contactForm">
-              <div class="form-group">
-                <label for="nombre">Nombre completo</label>
-                <input type="text" id="nombre" required />
-              </div>
+.social-row{ display:flex; gap:14px; margin-top:36px; }
+.social-row a{
+  width:48px; height:48px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center;
+  justify-content:center; font-size:1.1rem; color:var(--text-mid); transition:all .4s var(--ease); position:relative; overflow:hidden;
+}
+.social-row a::before{
+  content:''; position:absolute; inset:0; background:var(--grad-primary); opacity:0; transition:opacity .4s;
+}
+.social-row a i{ position:relative; z-index:1; transition:transform .4s var(--ease); }
+.social-row a:hover{ border-color:transparent; transform:translateY(-6px) rotate(8deg); box-shadow:0 12px 26px rgba(139,92,246,.4); }
+.social-row a:hover::before{ opacity:1; }
+.social-row a:hover i{ color:#08080f; transform:scale(1.15); }
 
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required />
-              </div>
+.contact-form{
+  background:var(--bg-elevated); border:1px solid var(--line); border-radius:var(--radius-lg); padding:44px;
+}
+@media(max-width:520px){ .contact-form{ padding:28px; } }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media(max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+.field{ margin-bottom:20px; }
+.field label{ display:block; font-size:.8rem; font-weight:600; color:var(--text-mid); margin-bottom:8px; letter-spacing:.03em; }
+.field input, .field textarea{
+  width:100%; padding:14px 16px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03);
+  color:var(--text-hi); font-family:var(--font-body); font-size:.95rem; transition:border-color .3s, box-shadow .3s, background .3s;
+}
+.field textarea{ resize:vertical; min-height:120px; }
+.field input::placeholder, .field textarea::placeholder{ color:var(--text-low); }
+.field input:focus, .field textarea:focus{
+  outline:none; border-color:var(--electric); box-shadow:0 0 0 4px rgba(0,212,255,.12); background:rgba(255,255,255,.05);
+}
+.submit-btn{
+  width:100%; padding:16px; border-radius:12px; font-family:var(--font-display); font-weight:700; font-size:.95rem;
+  background:var(--grad-primary); background-size:200% auto; color:#070710;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  transition:background-position .5s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.submit-btn:hover{ background-position:right center; transform:translateY(-3px); box-shadow:0 14px 34px rgba(255,45,149,.35); }
+.form-note{ font-size:.78rem; color:var(--text-low); margin-top:14px; text-align:center; }
+.form-success{
+  display:none; align-items:center; gap:12px; padding:16px 18px; border-radius:12px; margin-top:16px;
+  background:rgba(204,255,0,.08); border:1px solid rgba(204,255,0,.35); color:var(--lime); font-size:.88rem; font-weight:600;
+}
+.form-success.show{ display:flex; animation:fadeUp .5s var(--ease); }
 
-              <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" required />
-              </div>
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+footer{
+  border-top:1px solid var(--line); padding:56px 0 30px; background:var(--bg-void);
+}
+.footer-top{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; padding-bottom:40px; border-bottom:1px solid var(--line); }
+.footer-brand p{ max-width:280px; font-size:.88rem; color:var(--text-low); margin-top:12px; }
+.footer-cols{ display:flex; gap:60px; flex-wrap:wrap; }
+.footer-col h4{ font-family:var(--font-display); color:var(--text-hi); font-size:.88rem; margin-bottom:16px; letter-spacing:.04em; }
+.footer-col a{ display:block; font-size:.86rem; color:var(--text-low); margin-bottom:10px; transition:color .3s, transform .3s; }
+.footer-col a:hover{ color:var(--electric); transform:translateX(4px); }
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; padding-top:26px; flex-wrap:wrap; gap:12px;
+  font-size:.8rem; color:var(--text-low);
+}
+.footer-bottom .made{ display:flex; align-items:center; gap:6px; }
+.footer-bottom i{ color:var(--pink); }
 
-              <div class="form-group">
-                <label for="servicio">Servicio de interés</label>
-                <select id="servicio" required>
-                  <option value="">Selecciona un servicio</option>
-                  <option value="web">Página Web</option>
-                  <option value="landing">Landing Page</option>
-                  <option value="software">Software a Medida</option>
-                  <option value="ecommerce">E-Commerce</option>
-                  <option value="diseno">Diseño Gráfico</option>
-                  <option value="otro">Otro</option>
-                </select>
-              </div>
+/* ============================================================
+   11. BOTÓN VOLVER ARRIBA
+   ============================================================ */
+#back-to-top{
+  position:fixed; bottom:28px; right:28px; width:52px; height:52px; border-radius:50%; z-index:900;
+  background:var(--grad-primary); color:#08080f; display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; box-shadow:0 10px 30px rgba(139,92,246,.4);
+  opacity:0; visibility:hidden; transform:translateY(16px) scale(.8);
+  transition:opacity .4s var(--ease), transform .4s var(--ease), visibility .4s;
+}
+#back-to-top.show{ opacity:1; visibility:visible; transform:translateY(0) scale(1); }
+#back-to-top:hover{ transform:translateY(-4px) scale(1.05); }
 
-              <div class="form-group full-width">
-                <label for="mensaje">Descripción del proyecto</label>
-                <textarea id="mensaje" rows="5" required></textarea>
-              </div>
+/* Utilidades varias */
+.center-btn-wrap{ display:flex; justify-content:center; margin-top:20px; }
+</style>
+</head>
+<body>
 
-              <div class="form-buttons">
-                <button type="button" class="btn btn-secondary" id="emailBtn">
-                  <i class="fas fa-envelope"></i> Enviar por Email
-                </button>
-                <button type="submit" class="btn btn-primary">
-                  <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- ============================================================
+     LOADER INICIAL
+     ============================================================ -->
+<div id="loader">
+  <div class="loader-logo">SANTIX<span>.dev</span></div>
+  <div class="loader-bar"></div>
+  <div class="loader-tag">Compilando experiencia…</div>
+</div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <div class="footer-logo">
-              <img src="img/logoprincipal.png" alt="Santix" />
-              <span>SANTIX</span>
-            </div>
-            <p>Transformando ideas en soluciones digitales profesionales</p>
-          </div>
-
-          <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-              <li><a href="#inicio">Inicio</a></li>
-              <li><a href="#nosotros">Nosotros</a></li>
-              <li><a href="#servicios">Servicios</a></li>
-              <li><a href="#portafolio">Portafolio</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4>Servicios</h4>
-            <ul>
-              <li><a href="#servicios">Desarrollo Web</a></li>
-              <li><a href="#servicios">Landing Pages</a></li>
-              <li><a href="#servicios">Software</a></li>
-              <li><a href="#servicios">E-Commerce</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4>Contacto</h4>
-            <ul>
-              <li><i class="fab fa-whatsapp"></i> +57 312 768 2380</li>
-              <li>
-                <i class="fas fa-envelope"></i> santidevolper2002@gmail.com
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2025 SANTIX by Santiago Varela. Todos los derechos
-            reservados.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- WHATSAPP FLOATING BUTTON -->
-    <a
-      href="https://wa.me/573127682380?text=Hola%20Santix,%20necesito%20información%20sobre%20tus%20servicios"
-      class="whatsapp-float"
-      target="_blank"
-    >
-      <i class="fab fa-whatsapp"></i>
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<header id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">
+      <img src="assets/imagen/ANTI - 2.png" alt="Logo ANTI" class="logo-img">
     </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Inicio</a>
+      <a href="#tech" class="nav-link">Tecnologías</a>
+      <a href="#proyectos" class="nav-link">Proyectos</a>
+      <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#contacto" class="nav-link nav-cta">Contáctame</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
 
-    <script src="script.js"></script>
-  </body>
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-badge"><span class="pulse"></span> Disponible para nuevos proyectos · 2026</div>
+
+    <h1>
+      <span class="line"><span class="reveal-word" style="animation-delay:.05s">Construyo</span></span>
+      <span class="line"><span class="reveal-word" style="animation-delay:.18s">software</span> <span class="reveal-word" style="animation-delay:.3s">que</span></span>
+      <span class="line"><span class="reveal-word glitch" data-text="convierte" style="animation-delay:.42s">convierte</span> <span class="reveal-word" style="animation-delay:.55s">ideas</span></span>
+      <span class="line"><span class="reveal-word" style="animation-delay:.68s">en</span> <span class="reveal-word" style="animation-delay:.8s">productos.</span></span>
+    </h1>
+
+    <p class="sub">Soy <strong>Desarrollador de Software Full-Stack</strong>, especializado en construir aplicaciones web rápidas, escalables y visualmente impecables — desde landing pages hasta tiendas virtuales y software a medida.</p>
+
+    <div class="hero-actions">
+      <a href="#proyectos" class="btn btn-primary"><i class="fa-solid fa-code"></i> Ver proyectos</a>
+      <a href="#contacto" class="btn btn-ghost"><i class="fa-regular fa-paper-plane"></i> Hablemos</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><b data-count="5">0</b><span>Años de experiencia</span></div>
+      <div class="stat"><b data-count="40">0</b><span>Proyectos entregados</span></div>
+      <div class="stat"><b data-count="18">0</b><span>Clientes satisfechos</span></div>
+      <div class="stat"><b data-count="9">0</b><span>Tecnologías dominadas</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><div class="wheel"></div></div>
+</section>
+
+<!-- ============================================================
+     TECNOLOGÍAS
+     ============================================================ -->
+<section class="section-pad tech-section" id="tech">
+  <div class="container">
+    <div class="tech-header reveal">
+      <div class="eyebrow" style="justify-content:center;">Stack técnico</div>
+      <h2 class="section-title">Tecnologías que <span class="gradient-text">domino</span></h2>
+      <p class="section-sub">Herramientas que uso a diario para construir productos digitales sólidos, del frontend a la base de datos.</p>
+    </div>
+
+    <div class="tech-grid">
+      <div class="tech-card reveal" style="--tc-color:#e34c26;"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+      <div class="tech-card reveal reveal-delay-1" style="--tc-color:#264de4;"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+      <div class="tech-card reveal reveal-delay-2" style="--tc-color:#f0db4f;"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+      <div class="tech-card reveal reveal-delay-3" style="--tc-color:#41b883;"><i class="devicon-vuejs-plain colored"></i><span>Vue.js</span></div>
+      <div class="tech-card reveal reveal-delay-4" style="--tc-color:#1867c0;"><i class="fa-solid fa-layer-group"></i><span>Vuetify</span></div>
+      <div class="tech-card reveal" style="--tc-color:#96588a;"><i class="fa-brands fa-wordpress"></i><span>WooCommerce</span></div>
+      <div class="tech-card reveal reveal-delay-1" style="--tc-color:#336791;"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+      <div class="tech-card reveal reveal-delay-2" style="--tc-color:#00d4ff;"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+      <div class="tech-card reveal reveal-delay-3" style="--tc-color:#777bb4;"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+      <div class="tech-card more reveal reveal-delay-4" style="--tc-color:#ccff00;"><i class="fa-solid fa-infinity"></i><span>Entre otros</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CARRUSEL DE PROYECTOS
+     ============================================================ -->
+<section class="section-pad carousel-section" id="proyectos">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:56px;">
+      <div class="eyebrow">Portafolio</div>
+      <h2 class="section-title">Proyectos <span class="gradient-text">recientes</span></h2>
+      <p class="section-sub">Una muestra de productos que he diseñado y desarrollado de principio a fin.</p>
+    </div>
+
+    <div class="carousel-wrap reveal">
+      <div class="carousel-track-view">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="project-card">
+            <div class="project-media">
+              <span class="tag">E-commerce</span>
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop" alt="Tienda virtual moderna">
+            </div>
+            <div class="project-info">
+              <h3>NovaShop — Tienda Virtual</h3>
+              <p>Plataforma de e-commerce construida sobre WooCommerce con checkout optimizado, pasarela de pagos e inventario sincronizado en tiempo real.</p>
+              <div class="project-stack"><span>WordPress</span><span>WooCommerce</span><span>MySQL</span><span>PHP</span></div>
+              <a href="#" class="proj-link">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-media">
+              <span class="tag">Web App</span>
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Dashboard de software a medida">
+            </div>
+            <div class="project-info">
+              <h3>Fluedit — Panel de Gestión</h3>
+              <p>Software a medida para control de operaciones internas: reportes en vivo, roles de usuario y automatización de procesos administrativos.</p>
+              <div class="project-stack"><span>Vue.js</span><span>Vuetify</span><span>PostgreSQL</span></div>
+              <a href="#" class="proj-link">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-media">
+              <span class="tag">Landing Page</span>
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Landing page corporativa">
+            </div>
+            <div class="project-info">
+              <h3>Fluedit — Sitio Corporativo</h3>
+              <p>Landing de alto impacto para estudio creativo, enfocada en conversión, velocidad de carga y una identidad visual memorable.</p>
+              <div class="project-stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+              <a href="#" class="proj-link">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-media">
+              <span class="tag">Rediseño</span>
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Rediseño de sitio web">
+            </div>
+            <div class="project-info">
+              <h3>FlueditVertex Legal — Rediseño Web</h3>
+              <p>Modernización completa de un sitio institucional: nueva arquitectura de información, UI actualizada y mejoras de rendimiento.</p>
+              <div class="project-stack"><span>Vue.js</span><span>PHP</span><span>MySQL</span></div>
+              <a href="#" class="proj-link">Ver caso de estudio <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="car-arrow" id="carPrev" aria-label="Anterior"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="carousel-dots" id="carDots"></div>
+        <button class="car-arrow" id="carNext" aria-label="Siguiente"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOBRE MÍ
+     ============================================================ -->
+<section class="section-pad about-section" id="sobre-mi">
+  <div class="container about-grid">
+    <div class="about-media reveal">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop" alt="Desarrollador de software trabajando">
+      </div>
+      <div class="badge-float">
+        <i class="fa-solid fa-code-branch"></i>
+        <div><b>+40</b><span>Proyectos entregados</span></div>
+      </div>
+    </div>
+
+    <div class="about-text reveal reveal-delay-1">
+      <div class="eyebrow">Sobre mí</div>
+      <h2 class="section-title">Ingeniería con criterio, <span class="gradient-text">no solo código</span></h2>
+      <p>Soy un <strong>Desarrollador de Software</strong> con más de cinco años diseñando y construyendo productos digitales para negocios que necesitan resultados reales: velocidad, estabilidad y una experiencia de usuario que convierte.</p>
+      <p>Trabajo de extremo a extremo — desde la arquitectura de la base de datos hasta el último detalle de interfaz — combinando <strong>Vue.js</strong>, <strong>PHP</strong> y bases de datos como <strong>PostgreSQL</strong> y <strong>MySQL</strong> para entregar soluciones robustas y mantenibles.</p>
+      <p>Mi enfoque es simple: entender el negocio antes de escribir una línea de código, y construir software que siga funcionando bien mucho después de la entrega.</p>
+
+      <ul class="about-highlights">
+        <li><i class="fa-solid fa-check"></i> Código limpio y documentado</li>
+        <li><i class="fa-solid fa-check"></i> Entregas puntuales</li>
+        <li><i class="fa-solid fa-check"></i> Comunicación constante</li>
+        <li><i class="fa-solid fa-check"></i> Soporte post-lanzamiento</li>
+      </ul>
+
+      <div class="hero-actions" style="justify-content:flex-start; margin-top:34px;">
+        <a href="#contacto" class="btn btn-primary"><i class="fa-solid fa-handshake"></i> Trabajemos juntos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICIOS
+     ============================================================ -->
+<section class="section-pad" id="servicios">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:56px; text-align:center;">
+      <div class="eyebrow" style="justify-content:center;">Qué ofrezco</div>
+      <h2 class="section-title">Servicios <span class="gradient-text">a tu medida</span></h2>
+      <p class="section-sub" style="margin-inline:auto;">Soluciones completas para llevar tu negocio al entorno digital, con calidad de producción.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal" style="--sc-color:#00d4ff;">
+        <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Landing Pages</h3>
+        <p>Páginas de alto impacto enfocadas en conversión, velocidad de carga y una primera impresión memorable.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1" style="--sc-color:#8b5cf6;">
+        <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+        <h3>Páginas Web</h3>
+        <p>Sitios institucionales completos, responsivos y optimizados, adaptados a la identidad de tu marca.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2" style="--sc-color:#ff2d95;">
+        <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <h3>Tiendas Virtuales</h3>
+        <p>E-commerce robusto con WooCommerce: catálogo, pagos, envíos e inventario, listo para vender.</p>
+      </div>
+      <div class="service-card reveal" style="--sc-color:#ccff00;">
+        <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+        <h3>Software a Medida</h3>
+        <p>Sistemas internos y herramientas personalizadas que se ajustan exactamente a tus procesos de negocio.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1" style="--sc-color:#00d4ff;">
+        <div class="service-icon"><i class="fa-solid fa-paintbrush"></i></div>
+        <h3>Rediseño Web</h3>
+        <p>Renovación visual y técnica de sitios existentes, sin perder el contenido ni el posicionamiento ganado.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2" style="--sc-color:#8b5cf6;">
+        <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <h3>Mantenimiento Web</h3>
+        <p>Actualizaciones, respaldos, seguridad y soporte continuo para que tu sitio nunca se detenga.</p>
+      </div>
+      <div class="service-card reveal" style="--sc-color:#ff2d95; grid-column:span 1;">
+        <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+        <h3>Optimización Web</h3>
+        <p>Mejoras de rendimiento, SEO técnico y velocidad de carga para posicionar mejor tu sitio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACTO
+     ============================================================ -->
+<section class="section-pad" id="contacto">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Contacto</div>
+      <h2 class="section-title">Hagamos <span class="gradient-text">algo grande</span></h2>
+      <p class="section-sub">¿Tienes un proyecto en mente? Cuéntame los detalles y te responderé en menos de 24 horas.</p>
+
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <div class="ic"><i class="fa-regular fa-envelope"></i></div>
+          <div><b>Correo electrónico</b><span>hola@santix.dev</span></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+          <div><b>Ubicación</b><span>Remoto · Disponible LATAM</span></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ic"><i class="fa-solid fa-clock"></i></div>
+          <div><b>Tiempo de respuesta</b><span>Menos de 24 horas</span></div>
+        </div>
+      </div>
+
+      <div class="social-row">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" aria-label="Correo"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-1">
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="femail">Correo</label>
+            <input type="email" id="femail" placeholder="tu@correo.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fsubject">Asunto</label>
+          <input type="text" id="fsubject" placeholder="¿En qué puedo ayudarte?" required>
+        </div>
+        <div class="field">
+          <label for="fmessage">Mensaje</label>
+          <textarea id="fmessage" placeholder="Cuéntame sobre tu proyecto…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn"><i class="fa-regular fa-paper-plane"></i> Enviar mensaje</button>
+        <p class="form-note">Tus datos se usan solo para responder tu mensaje.</p>
+        <div class="form-success" id="formSuccess"><i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado! Te responderé pronto.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <img src="assets/imagen/ANTI - 2.png" alt="ANTI" class="logo-img">
+        </a>
+        <p>Desarrollador de Software full-stack construyendo productos digitales rápidos, escalables y elegantes.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <a href="#home">Inicio</a>
+          <a href="#tech">Tecnologías</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#sobre-mi">Sobre mí</a>
+        </div>
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <a href="#servicios">Landing Pages</a>
+          <a href="#servicios">Tiendas Virtuales</a>
+          <a href="#servicios">Software a Medida</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <a href="mailto:hola@santix.dev">hola@santix.dev</a>
+          <a href="#contacto">Formulario</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SANTIX. Todos los derechos reservados.</span>
+      <span class="made">Hecho con <i class="fa-solid fa-heart"></i> y mucho café</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ============================================================
+   1. LOADER: se oculta cuando la página termina de cargar
+   ============================================================ */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => loader.classList.add('hidden'), 500);
+});
+
+/* ============================================================
+   2. NAVBAR: cambia de estilo al hacer scroll + menú móvil
+   ============================================================ */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  toggleBackToTop();
+});
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  navToggle.innerHTML = navLinks.classList.contains('open')
+    ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+});
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+
+/* ============================================================
+   3. PARTÍCULAS ANIMADAS EN EL HERO (canvas)
+   ============================================================ */
+(function initParticles(){
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  const heroSection = document.querySelector('.hero');
+  let particles = [];
+  const colors = ['#00d4ff', '#8b5cf6', '#ff2d95', '#ccff00'];
+
+  function resize(){
+    canvas.width = heroSection.offsetWidth;
+    canvas.height = heroSection.offsetHeight;
+  }
+
+  function createParticles(){
+    const count = Math.min(90, Math.floor(canvas.width / 16));
+    particles = Array.from({length: count}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.8 + 0.6,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: Math.random() * 0.5 + 0.25
+    }));
+  }
+
+  function connect(){
+    for(let i=0; i<particles.length; i++){
+      for(let j=i+1; j<particles.length; j++){
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 120){
+          ctx.strokeStyle = `rgba(0,212,255,${0.12 * (1 - dist/120)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+    connect();
+    requestAnimationFrame(animate);
+  }
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  resize();
+  createParticles();
+  if(!prefersReduced){ animate(); } else { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color;ctx.fill();}); }
+
+  window.addEventListener('resize', () => { resize(); createParticles(); });
+})();
+
+/* ============================================================
+   4. CONTADOR ANIMADO DE ESTADÍSTICAS (hero)
+   ============================================================ */
+(function animateStats(){
+  const stats = document.querySelectorAll('.hero-stats b[data-count]');
+  const statsSection = document.querySelector('.hero-stats');
+  let done = false;
+
+  function run(){
+    if(done) return; done = true;
+    stats.forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      let current = 0;
+      const step = Math.max(1, target / 40);
+      const tick = () => {
+        current += step;
+        if(current >= target){ el.textContent = target + '+'; return; }
+        el.textContent = Math.floor(current);
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
+  }
+  // Los stats están en el hero, visibles al cargar
+  setTimeout(run, 1300);
+})();
+
+/* ============================================================
+   5. SCROLL REVEAL con Intersection Observer
+   ============================================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ============================================================
+   6. CARRUSEL DE PROYECTOS
+   ============================================================ */
+(function initCarousel(){
+  const track = document.getElementById('carouselTrack');
+  const slides = Array.from(track.children);
+  const dotsWrap = document.getElementById('carDots');
+  const prevBtn = document.getElementById('carPrev');
+  const nextBtn = document.getElementById('carNext');
+  let index = 0;
+  let autoTimer;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    if(i === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', `Ir al proyecto ${i+1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function update(){
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+  function goTo(i){ index = (i + slides.length) % slides.length; update(); resetAuto(); }
+  function next(){ goTo(index + 1); }
+  function prev(){ goTo(index - 1); }
+
+  function resetAuto(){
+    clearInterval(autoTimer);
+    autoTimer = setInterval(next, 6000);
+  }
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+  resetAuto();
+
+  // Soporte de swipe táctil
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive:true });
+  track.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if(diff > 50) prev();
+    else if(diff < -50) next();
+  });
+})();
+
+/* ============================================================
+   7. FORMULARIO DE CONTACTO (simulado, sin backend)
+   ============================================================ */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const success = document.getElementById('formSuccess');
+  success.classList.add('show');
+  this.reset();
+  setTimeout(() => success.classList.remove('show'), 5000);
+});
+
+/* ============================================================
+   8. BOTÓN VOLVER ARRIBA
+   ============================================================ */
+const backToTop = document.getElementById('back-to-top');
+function toggleBackToTop(){
+  backToTop.classList.toggle('show', window.scrollY > 600);
+}
+backToTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+/* ============================================================
+   9. CIERRE DEL LOADER ANTE FALLOS DE CARGA DE RECURSOS
+   ============================================================ */
+setTimeout(() => document.getElementById('loader').classList.add('hidden'), 3500);
+</script>
+</body>
 </html>
